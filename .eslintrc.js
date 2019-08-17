@@ -15,8 +15,12 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   rules: {
-    extensions: ['.jsx', 'js'],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    {
+      extensions: ['.jsx', 'js'],
+    }
   },
 };
