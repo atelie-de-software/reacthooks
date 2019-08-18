@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
+  const [techs, setTechs] = useState([]);
+
   return (
     <div>
-      <p>Ateliê de Software</p>
+      <ul>{techs && techs.map(tech => <li>{tech}</li>)}</ul>
     </div>
   );
 }
