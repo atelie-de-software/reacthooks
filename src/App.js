@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 
 function App() {
   const [techs, setTechs] = useState([]); // <-declaring variables using useState
@@ -24,8 +24,12 @@ function App() {
     console.log("updated");
   }, [techs]); // <-dependency
 
+  // Memoization is an optimization technique that caches the result of a function based on input parameters.
+  const memoTechs = useMemo(() => techs.length, [techs]); // <- Memoization: returning the cached result when the same entries occur again
+
   return (
     <div>
+      <strong>{`You have ${memoTechs} technologies`}</strong>
       <ul>
         {techs.map(tech => (
           <li key={tech}>{tech}</li>
